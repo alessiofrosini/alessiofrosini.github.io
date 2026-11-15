@@ -28,7 +28,10 @@
     .nav .contact-link { border:1px solid var(--line); border-radius:4px; padding:8px 17px; }
     .menu-toggle { display:none; border:1px solid var(--line); background:transparent; padding:7px 12px; border-radius:4px; color:var(--ink); }
     .eyebrow { text-transform:uppercase; font-size:10px; font-weight:650; letter-spacing:.18em; line-height:1.5; }
-    .hero { padding:86px 0 72px; max-width:780px; }
+    .hero { display:grid; grid-template-columns:minmax(0,1fr) 300px; align-items:center; gap:clamp(40px,6vw,84px); padding:86px 0 72px; }
+    .hero-copy { min-width:0; }
+    .portrait { width:100%; max-width:300px; margin:0; justify-self:end; }
+    .portrait img { display:block; width:100%; height:auto; aspect-ratio:3 / 4; object-fit:cover; object-position:center 10%; border:1px solid var(--line); border-radius:6px; }
     h1 { font-family:var(--serif); font-size:clamp(44px,5vw,64px); letter-spacing:-.05em; line-height:1.06; font-weight:400; margin:0 0 23px; }
     .role { font-size:22px; line-height:1.5; letter-spacing:-.035em; margin:0 0 17px; }
     .intro { color:var(--muted); font-size:16px; line-height:1.85; max-width:680px; margin:0; }
@@ -76,7 +79,7 @@
     .footer-name { color:var(--ink); font-weight:550; margin-right:16px; }
     .footer-inner a { text-decoration:none; }
     .footer-inner a:hover { color:var(--blue); }
-    @media (max-width:1000px) { .hero { padding-top:65px; } .wrap { width:calc(100% - 64px); } .nav { gap:22px; } .experience-grid { gap:48px; } .contact { gap:35px; padding:35px; } }
+    @media (max-width:1000px) { .hero { grid-template-columns:minmax(0,1fr) 240px; gap:40px; padding-top:65px; } .wrap { width:calc(100% - 64px); } .nav { gap:22px; } .experience-grid { gap:48px; } .contact { gap:35px; padding:35px; } }
     @media (max-width:760px) {
       html { scroll-padding-top:95px; }
       .wrap { width:calc(100% - 40px); }
@@ -88,7 +91,8 @@
       .js .nav { display:none; }
       .js .nav.is-open { display:flex; }
       .nav .contact-link { border:0; padding:7px 0; }
-      .hero { padding:45px 0 47px; }
+      .hero { grid-template-columns:1fr; gap:32px; padding:45px 0 47px; }
+      .portrait { max-width:260px; justify-self:center; }
       h1 { font-size:48px; }
       .role { font-size:21px; }
       .intro { font-size:15px; max-width:100%; }
@@ -129,7 +133,7 @@
   <main id="main">
     <div class="wrap">
       <section class="hero" aria-labelledby="hero-title">
-        <div>
+        <div class="hero-copy">
           <h1 id="hero-title">Alessio Frosini</h1>
           <p class="role">Postdoctoral Associate at Yale School of Public Health</p>
           <p class="intro">I study causal inference and microeconometrics, focusing on the analysis of treatment effects under interference in both experimental and observational settings.</p>
@@ -140,6 +144,9 @@
           </div>
           <div class="affiliation"><span>School of Public Health</span><span>Yale University</span></div>
         </div>
+        <figure class="portrait">
+          <img src="picture.jpg" alt="Alessio Frosini" width="608" height="1344" decoding="async" fetchpriority="high">
+        </figure>
       </section>
       <section id="research" class="section" aria-labelledby="research-heading">
         <div class="section-header">
